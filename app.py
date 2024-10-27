@@ -178,7 +178,9 @@ def initialize_db():
     """Initialize the database."""
     with app.app_context():
         db.create_all()  # Create all tables
-
+        inspector = inspect(db.engine)
+        tables = inspector.get_table_names()
+        print(f"Tables in the database: {tables}")
 
 def list_tables():
     """List all tables in the database."""
