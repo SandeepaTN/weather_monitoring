@@ -1,7 +1,7 @@
-Flask
-Flask-SQLAlchemy
-Flask-Mail
-APScheduler
-requests
-gunicorn
-dotenv
+Flask==3.0.3
+Flask-SQLAlchemy==3.1.1
+Flask-Mail==0.10.0
+APScheduler==3.10.4
+requests==2.32.3
+gunicorn==23.0.0
+python-dotenv==1.0.0
