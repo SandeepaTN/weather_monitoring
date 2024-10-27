@@ -12,7 +12,7 @@ from flask_mail import Mail, Message
 load_dotenv()
 # Flask Application
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/weather_data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///weather_data.db'
 
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 db.init_app(app)
