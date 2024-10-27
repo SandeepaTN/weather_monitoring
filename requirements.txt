@@ -3,4 +3,4 @@ Flask-SQLAlchemy
 Flask-Mail
 APScheduler
 requests
-
+gunicorn
