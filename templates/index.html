@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Weather Monitoring System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Real-Time Weather Monitoring System</h1>
+    </header>
+    <main>
+        <h2>Select City and Set Threshold</h2>
+        <form method="POST">
+            <label for="city">City:</label>
+            <select name="city" id="city" required>
+                {% for city in weather_data %}
+                <option value="{{ city['city'] }}">{{ city['city'] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="max_temp">Max Temperature (°C):</label>
+            <input type="number" step="0.01" name="max_temp" required>
+
+            <label for="min_temp">Min Temperature (°C):</label>
+            <input type="number" step="0.01" name="min_temp" required>
+
+            <label for="email">Email ID:</label>
+            <input type="email" name="email" required>
+
+            <button type="submit">Set Threshold</button>
+        </form>
+
+        <h2>Current Weather</h2>
+        <ul class="weather-list">
+            {% for data in weather_data %}
+            <li>
+                <a href="{{ url_for('summary', city=data['city']) }}">
+                    <strong>{{ data['city'] }}</strong>
+                </a>
+                <div class="weather-details">
+                    <span><strong>Actual:</strong> {{ data['temp'] }}°C</span>
+                    <span><strong>Feels Like:</strong> {{ data['feels_like'] }}°C</span>
+                    <span><strong>Condition:</strong> {{ data['main'] }}</span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+
+        
+        <h2>Alerts</h2>
+        <div class="alerts">
+            <ul>
+                {% for alert in alerts %}
+                <li>{{ alert }}</li>
+                {% else %}
+                <li>No alerts at the moment.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </main>
+</body>
+
+</html>

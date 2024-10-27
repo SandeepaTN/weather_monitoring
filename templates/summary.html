@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ summary.city }} - Weather Summary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Weather Summary for {{ summary.city }}</h1>
+    </header>
+    <main>
+        <p><strong>Average Temperature:</strong> {{ summary.avg_temp }}°C</p>
+        <p><strong>Maximum Temperature:</strong> {{ summary.max_temp }}°C</p>
+        <p><strong>Minimum Temperature:</strong> {{ summary.min_temp }}°C</p>
+        <p><strong>Dominant Weather Condition:</strong> {{ summary.dominant_condition }}</p>
+
+        <a href="{{ url_for('index') }}">Back to Home</a>
+    </main>
+</body>
+
+</html>
