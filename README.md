@@ -21,6 +21,12 @@ A Flask-based web application that fetches weather data for multiple cities, sto
 
 ---
 
+## Live Deployment
+
+The weather monitoring is live and accessible at:  
+(https://weather-monitoring-roi0.onrender.com/)
+
+
 ## Setup Instructions
 
 ### Prerequisites
